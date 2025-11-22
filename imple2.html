@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Low Carbon Life: Your Action Plan</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #e63946; /* Strong Red for urgency/action */
+            --secondary-color: #2a9d8f; /* Teal Green for sustainability */
+            --dark-text: #1d3557;
+            --light-bg: #f7f9fb;
+            --impact-high: #e74c3c;
+            --impact-medium: #f39c12;
+            --impact-low: #2ecc71;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.65;
+        }
+
+        /* HEADER */
+        header {
+            background: url('low.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+       
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(29, 53, 87, 0.65);
+            z-index: 0;
+        }
+
+        header .header-text {
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            padding: 20px 30px;
+            border-radius: 15px;
+        }
+
+        header h1 {
+            font-size: 64px;
+            margin: 0;
+            font-weight: 800;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+
+        header p {
+            font-size: 26px;
+            margin-top: 5px;
+            font-weight: 500;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--primary-color);
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid white;
+            color: #f1faee;
+        }
+
+        /* Section */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: -40px auto 60px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        section h2 {
+            color: var(--primary-color);
+            font-size: 40px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+       
+        /* Filter Tabs (styles remain the same) */
+        #filter-tabs { text-align: center; margin-bottom: 50px; }
+        .filter-btn { background: #fff; border: 2px solid var(--secondary-color); color: var(--secondary-color); padding: 10px 25px; margin: 5px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--secondary-color); color: white; box-shadow: 0 4px 10px rgba(42, 157, 143, 0.4); }
+
+        /* Cards (styles remain the same) */
+        .card-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 35px; margin-top: 40px; }
+        .card { background: var(--light-bg); padding: 25px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s; text-align: left; border-top: 5px solid var(--secondary-color); }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.2); border-top-color: var(--primary-color); }
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .card h3 { color: var(--dark-text); font-size: 24px; font-weight: 700; margin: 0; }
+        .impact-score { font-family: 'Roboto Mono', monospace; font-size: 0.9em; padding: 5px 10px; border-radius: 5px; color: white; font-weight: 500; }
+        .impact-high { background-color: var(--impact-high); }
+        .impact-medium { background-color: var(--impact-medium); }
+        .impact-low { background-color: var(--impact-low); }
+        .card img { width: 100%; height: 180px; object-fit: cover; border-radius: 15px; margin-bottom: 15px; }
+        .card p { font-size: 15px; color: #555; margin-bottom: 0; }
+       
+        /* Call to Action Box (styles remain the same, but button is now a function) */
+        .challenge-cta { background: var(--primary-color); color: white; padding: 30px; border-radius: 15px; text-align: center; margin-top: 60px; box-shadow: 0 6px 15px rgba(230, 57, 70, 0.5); }
+        .challenge-cta h3 { font-size: 30px; margin: 0 0 15px; font-weight: 700; color: white; }
+        .challenge-btn { background: var(--secondary-color); color: white; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 18px; transition: transform 0.3s, background 0.3s; border: none; cursor: pointer; display: inline-block; }
+        .challenge-btn:hover { background: #1d3557; transform: scale(1.05); }
+
+
+        /* --------------------------------- */
+        /* MODAL STYLES (NEW) */
+        /* --------------------------------- */
+        #challengeModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content h3 {
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .modal-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--dark-text);
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            margin: 0 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #acceptChallenge {
+            
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        #acceptChallenge:hover {
+            background-color: #1a7c72;
+        }
+
+        #closeModal {
+            background-color: #ccc;
+            color: #333;
+        }
+        #closeModal:hover {
+            background-color: #bbb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Footer (styles remain the same) */
+        footer { background: var(--dark-text); color: white; text-align: center; padding: 30px; font-size: 14px; }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            header h1 { font-size: 48px; }
+            header p { font-size: 20px; }
+            section h2 { font-size: 32px; }
+            .card-container { grid-template-columns: 1fr; }
+            .modal-content { max-width: 90%; padding: 30px; }
+        }
+    </style>
+</head>
+
+<body onload="filterCards('All', document.querySelector('.filter-btn'))">
+
+<header>
+    <div class="header-text">
+        <h1>Your Low Carbon Action Plan</h1>
+        <p>Practical ways to reduce your carbon footprint, categorized by impact. 💡</p>
+    </div>
+</header>
+
+<nav>
+    <a href="imple2.html">Home</a>
+    <a href="sdg13.html">SDG 13 Goals </a>
+    <a href="imple2.html">Implementation </a>
+</nav>
+
+<section>
+    <div style="text-align: center;">
+        <h2>Maximize Your Impact Now</h2>
+      
+    </div>
+
+  
+    <div class="card-container" id="card-list">
+
+        <div class="card" data-category="Energy" data-impact="High">
+            <a href="re.html">
+            <div class="card-header"><h3>Renewable Energy Switch</h3><span class="impact-score impact-high">HIGH IMPACT</span></div>
+            <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=600&q=80" alt="Solar Panels">
+            <p>Switch your electricity provider to a 100% solar or wind energy plan. This is the single biggest move for homeowners or renters.</p>
+        </a>
+        </div>
+       
+        <div class="card" data-category="Travel" data-impact="Medium">
+            <a href="eco.html">
+            <div class="card-header"><h3>Eco-Friendly Commute</h3><span class="impact-score impact-medium">MEDIUM IMPACT</span></div>
+            <img src="https://framerusercontent.com/images/mQcKcyt3Nb25vMYBSbb47aQ9Kw.jpg" alt="Cycling">
+            <p>Walk, bike, carpool, or use public transport for your daily commute. If you must drive, consider an EV or hybrid.</p>
+        </a>
+        </div>
+        <div class="card" data-category="Consumption" data-impact="Medium">
+            <a href="reuse.html">
+            <div class="card-header"><h3>Recycle & Reuse EVERYTHING</h3><span class="impact-score impact-medium">MEDIUM IMPACT</span></div>
+            <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Recycling">
+            <p>Diligently recycle paper, plastic, glass, and metals. Avoid fast fashion and buy second-hand goods wherever possible.</p>
+           </a>
+        </div>
+        
+
+
+
+
+   
+</body>
+</html>

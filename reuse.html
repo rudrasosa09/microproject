@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recycle & Reuse — Guide</title>
+
+  <style>
+    :root{
+      --bg:#e5f7ff;
+      --card:#ffffff;
+      --accent:#0088cc;
+      --accent-2:#006fa8;
+      --text:#0f172a;
+      --muted:#444;
+      --radius:14px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(recycle.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+      color:var(--text);
+      line-height:1.5;
+      background-image: url(reuse.jpg);
+    }
+
+    .container{max-width:var(--maxw);width:100%}
+
+    header{display:flex;align-items:center;gap:20px;margin-bottom:24px}
+    .logo{
+      width:70px;height:70px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:700;font-size:20px;
+    }
+
+    .hero{display:flex;gap:24px;margin-bottom:26px}
+
+    h1{margin:0 0 10px;font-size:28px;color:white}
+    .lead{color:#eee}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+    .card{
+      background:var(--card);
+      padding:18px;border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(0,0,0,0.12);
+      transition:transform .25s;
+    }
+    .card:hover{transform:translateY(-5px)}
+
+    button{
+      background:var(--accent);
+      color:#fff;border:0;padding:10px 14px;border-radius:10px;cursor:pointer;
+    }
+    button.secondary{background:#fff;color:var(--accent-2);border:1px solid #ddd}
+
+    footer{
+      margin-top:30px;padding:18px;background:rgba(255,255,255,0.55);
+      border-radius:12px;backdrop-filter:blur(5px);
+      display:flex;justify-content:space-between;
+    }
+
+    .fade-in{opacity:0;transform:translateY(10px);animation:fadeIn .6s forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+
+    input{
+      width:100%;padding:8px;margin:6px 0 10px;
+      border-radius:8px;border:1px solid #ccc;
+    }
+
+    @media(max-width:720px){
+      .hero{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header class="fade-in">
+    <div class="logo">RR</div>
+    <div>
+      <strong style="color:white">Recycle & Reuse — Guide</strong>
+      <div class="muted" style="font-size:13px;color:#eee">Reduce waste and extend the life of materials</div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div style="flex:1" class="fade-in">
+      <h1>Recycle more. Waste less. Protect the planet.</h1>
+      <p class="lead">Learn how to reduce waste, reuse materials creatively, and understand how recycling benefits the environment.</p>
+
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="#calc" style="text-decoration:none"><button>Waste Savings Calculator</button></a>
+        <a href="#tips" style="text-decoration:none"><button class="secondary">Recycling Tips</button></a>
+      </div>
+    </div>
+
+    <div style="width:320px;max-width:40%" class="fade-in">
+      <div class="card">
+        <strong>Quick fact</strong>
+        <p class="muted" style="font-size:14px">
+          Recycling 1 ton of paper saves about 17 trees and 7,000 gallons of water.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="grid">
+
+      <!-- WHY RECYCLE -->
+      <article class="card fade-in">
+        <h3>Why Recycle & Reuse?</h3>
+        <p class="muted">
+          Saves resources, reduces pollution, minimizes landfill waste, and conserves energy used in manufacturing.
+        </p>
+      </article>
+
+      <!-- TYPES OF RECYCLABLES -->
+      <article class="card fade-in">
+        <h3>What can you recycle?</h3>
+        <ul class="muted">
+          <li>Paper & cardboard</li>
+          <li>Glass bottles & jars</li>
+          <li>Plastic bottles & containers</li>
+          <li>Aluminum & metal cans</li>
+          <li>E-waste items</li>
+        </ul>
+      </article>
+
+      <!-- RECYCLING TIPS -->
+      <article id="tips" class="card fade-in">
+        <h3>Smart Recycling Tips</h3>
+        <ul class="muted">
+          <li>Clean and dry materials before recycling.</li>
+          <li>Reuse jars, containers, and bags whenever possible.</li>
+          <li>Segregate biodegradable and non-biodegradable waste.</li>
+          <li>Donate old electronics instead of throwing them.</li>
+          <li>Upcycle items to give them new purpose.</li>
+        </ul>
+      </article>
+
+      <!-- CALCULATOR -->
+      <article id="calc" class="card fade-in">
+        <h3>Waste Savings Calculator</h3>
+        <p class="muted">Estimate yearly waste saved by recycling common materials.</p>
+
+        <label class="muted">Paper recycled per week (kg)</label>
+        <input id="paper" type="number" value="3">
+
+        <label class="muted">Plastic recycled per week (kg)</label>
+        <input id="plastic" type="number" value="1">
+
+        <label class="muted">Metal recycled per week (kg)</label>
+        <input id="metal" type="number" value="0.5">
+
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button onclick="calculate()">Calculate</button>
+          <button class="secondary" onclick="resetCalc()">Reset</button>
+        </div>
+
+        <div id="output" class="muted" style="margin-top:10px">Result will appear here.</div>
+      </article>
+
+    </div>
+
+    <!-- EXTRA CARD -->
+    <aside class="card fade-in" style="margin-top:20px">
+      <h3>Community Ideas</h3>
+      <p class="muted">Organize recycling drives, run donation centers, or start a zero-waste workshop in your area.</p>
+    </aside>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="fade-in">
+    <div>
+      <strong>Ready to recycle?</strong><br>
+      <span class="muted">Small actions lead to huge environmental benefits.</span>
+    </div>
+    <div class="muted" style="font-size:13px">© Recycle & Reuse — Guide</div>
+  </footer>
+
+</div>
+
+<script>
+function calculate(){
+  const p = parseFloat(document.getElementById('paper').value)||0;
+  const pl = parseFloat(document.getElementById('plastic').value)||0;
+  const m = parseFloat(document.getElementById('metal').value)||0;
+
+  const yearly = (p + pl + m) * 52;
+
+  document.getElementById('output').innerHTML = `
+    <strong>You recycle about ${yearly.toFixed(1)} kg of material per year!</strong><br>
+    Great job reducing landfill waste and conserving natural resources.
+  `;
+}
+
+function resetCalc(){
+  document.getElementById('paper').value = 3;
+  document.getElementById('plastic').value = 1;
+  document.getElementById('metal').value = 0.5;
+  document.getElementById('output').innerHTML = "Result will appear here.";
+}
+
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.fade-in').forEach((el,i)=>{
+    el.style.animationDelay = (i*120)+"ms";
+  });
+});
+</script>
+
+</body>
+</html>

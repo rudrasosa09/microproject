@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Renewable Energy Switch — Guide</title>
+
+  <style>
+    :root{
+      --bg:#e8f3ff;
+      --card:#ffffff;
+      --accent:#0077ff;
+      --accent-2:#005fcc;
+      --text:#0f172a;
+      --muted:#333;
+      --radius:14px;
+      --maxw:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(bg2.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color:var(--text);
+      line-height:1.5;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{max-width:var(--maxw);width:100%}
+
+    header{display:flex;align-items:center;gap:20px;margin-bottom:24px}
+    .logo{
+      width:70px;height:70px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-weight:700;font-size:20px;
+    }
+
+    .hero{display:flex;gap:24px;margin-bottom:26px}
+
+    h1{margin:0 0 10px;font-size:28px;color:white}
+    .lead{color:#ddd}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:20px}
+    .card{
+      background:var(--card);
+      padding:18px;border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(0,0,0,0.1);
+      transition:transform .25s;
+    }
+    .card:hover{transform:translateY(-5px)}
+
+    button{
+      background:var(--accent);
+      color:#fff;border:0;padding:10px 14px;border-radius:10px;cursor:pointer;
+    }
+    button.secondary{background:#fff;color:var(--accent-2);border:1px solid #ddd}
+
+    footer{
+      margin-top:30px;padding:18px;
+      background:rgba(255,255,255,0.55);
+      border-radius:12px;backdrop-filter:blur(5px);
+      display:flex;justify-content:space-between;
+    }
+
+    .fade-in{opacity:0;transform:translateY(10px);animation:fadeIn .6s forwards}
+    @keyframes fadeIn{to{opacity:1;transform:none}}
+
+    input{
+      width:100%;padding:8px;margin:6px 0 10px;
+      border-radius:8px;border:1px solid #ccc;
+    }
+
+    @media(max-width:720px){.hero{flex-direction:column}}
+
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header class="fade-in">
+    <div class="logo">RE</div>
+    <div>
+      <strong style="color:white">Renewable Energy Switch — Guide</strong>
+      <div class="muted" style="font-size:13px;color:#eee">Switch to clean energy and reduce carbon emissions</div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div style="flex:1" class="fade-in">
+      <h1>Switch to clean energy. Power a greener future.</h1>
+      <p class="lead">Learn how shifting to solar, wind, or hydro energy reduces costs and environmental impact.</p>
+
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a href="#calc" style="text-decoration:none"><button>Energy Calculator</button></a>
+        <a href="#tips" style="text-decoration:none"><button class="secondary">Energy Tips</button></a>
+      </div>
+    </div>
+
+    <div style="width:320px;max-width:40%" class="fade-in">
+      <div class="card">
+        <strong>Quick fact</strong>
+        <p class="muted" style="font-size:14px">
+          Switching to solar energy can reduce electricity bills by up to 80% annually.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <div class="grid">
+
+      <!-- Info Card 1 -->
+      <article class="card fade-in">
+        <h3>Why renewable energy?</h3>
+        <p class="muted">
+          Clean energy reduces greenhouse gases, lowers long-term costs, and promotes sustainability.
+        </p>
+      </article>
+
+      <!-- Info Card 2 -->
+      <article class="card fade-in">
+        <h3>Renewable energy sources</h3>
+        <ul class="muted">
+          <li>Solar power</li>
+          <li>Wind energy</li>
+          <li>Hydropower</li>
+          <li>Biomass energy</li>
+          <li>Geothermal power</li>
+        </ul>
+      </article>
+
+      <!-- Tips -->
+      <article id="tips" class="card fade-in">
+        <h3>Smart energy saving tips</h3>
+        <ul class="muted">
+          <li>Install solar panels for long-term savings.</li>
+          <li>Use LED bulbs and energy-efficient appliances.</li>
+          <li>Turn off unused devices to reduce energy waste.</li>
+          <li>Improve home insulation to maintain temperature.</li>
+          <li>Choose renewable-energy providers when possible.</li>
+        </ul>
+      </article>
+
+      <!-- Calculator -->
+      <article id="calc" class="card fade-in">
+        <h3>Energy Savings Calculator</h3>
+        <p class="muted">Estimate yearly savings by switching to renewable energy.</p>
+
+        <label class="muted">Monthly electricity consumption (kWh)</label>
+        <input id="consumption" type="number" value="200">
+
+        <label class="muted">Current cost per kWh (₹)</label>
+        <input id="currentCost" type="number" value="8">
+
+        <label class="muted">Renewable cost per kWh (₹)</label>
+        <input id="renewCost" type="number" value="3">
+
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <button onclick="calculate()">Calculate</button>
+          <button class="secondary" onclick="resetCalc()">Reset</button>
+        </div>
+
+        <div id="output" class="muted" style="margin-top:10px">Result will appear here.</div>
+      </article>
+
+    </div>
+
+    <aside class="card fade-in" style="margin-top:20px">
+      <h3>Community ideas</h3>
+      <p class="muted">
+        Start solar rooftop awareness drives or encourage neighbors to join renewable energy programs.
+      </p>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <div>
+      <strong>Ready to switch?</strong><br>
+      <span class="muted">Renewable energy is clean, affordable, and future-proof.</span>
+    </div>
+    <div class="muted" style="font-size:13px">© Renewable Energy Switch — Guide</div>
+  </footer>
+
+</div>
+
+<!-- JavaScript -->
+<script>
+function calculate(){
+  const c = parseFloat(document.getElementById('consumption').value)||0;
+  const cur = parseFloat(document.getElementById('currentCost').value)||0;
+  const newc = parseFloat(document.getElementById('renewCost').value)||0;
+
+  const yearlyCurrent = c * cur * 12;
+  const yearlyRenew = c * newc * 12;
+  const savings = yearlyCurrent - yearlyRenew;
+
+  document.getElementById('output').innerHTML = `
+    <strong>You save approx ₹${savings.toFixed(2)} per year!</strong><br>
+    Switching to renewable energy reduces both emissions and electricity bills.
+  `;
+}
+
+function resetCalc(){
+  document.getElementById('consumption').value = 200;
+  document.getElementById('currentCost').value = 8;
+  document.getElementById('renewCost').value = 3;
+  document.getElementById('output').innerHTML = "Result will appear here.";
+}
+
+window.addEventListener('load',()=>{
+  document.querySelectorAll('.fade-in').forEach((el,i)=>{
+    el.style.animationDelay = (i*120)+"ms";
+  });
+});
+</script>
+
+</body>
+</html>

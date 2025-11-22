@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ SDG 13: Your Low Carbon Mission ⚡</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= BASE STYLES ================= */
+        :root {
+            --sdg-red: #e63946;
+            --sdg-green: #2a9d8f;
+            --dark-blue: #1d3557;
+            --light-bg: #f7f9fb;
+            
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--light-bg);
+            color: var(--dark-blue);
+            line-height: 1.65;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+
+        /* ================= HEADER ================= */
+        header {
+            background: url('SDG-13 2.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        header::after {
+            content: "";
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background-color: rgba(29,53,87,0.65);
+        }
+        header h1, header h2 { position: relative; z-index: 1; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); }
+        header h1 { font-size: 58px; margin-bottom: 5px; font-weight: 800; }
+        header h2 { font-size: 30px; font-weight: 600; animation: pulseColor 5s infinite alternate; }
+        @keyframes pulseColor { from {color:#fff;} to {color:#f1faee;} }
+
+        /* ================= NAVIGATION ================= */
+        nav {
+            background: var(--sdg-red);
+            padding: 18px 20px;
+            text-align: center;
+            position: sticky;
+            top:0;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        nav a {
+            color:white;
+            margin:0 15px;
+            text-decoration:none;
+            font-weight:600;
+            font-size:16px;
+            padding:5px 10px;
+            border-bottom:2px solid transparent;
+            transition: all 0.3s;
+        }
+        nav a:hover { border-bottom:2px solid white; color:#ffe0b2; }
+
+        /* Register button */
+        #openPopupBtn {
+            background:#2a9d8f;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:8px;
+            font-weight:600;
+            cursor:pointer;
+            margin-left: 20px;
+        }
+        #openPopupBtn:hover { background:#1e7364; }
+
+        /* ================= MAIN CONTENT ================= */
+        main { max-width: 1100px; margin:0 auto; padding:40px 20px; }
+        section {
+            background:white;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom:40px;
+            text-align:center;
+        }
+        section h2 {
+            color: var(--dark-blue);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--sdg-green);
+            display:inline-block;
+            padding-bottom:8px;
+        }
+        .intro-text {
+            font-size:1.15em;
+            max-width:800px;
+            margin:0 auto 30px;
+            color:#457b9d;
+        }
+
+        /* ================= FACT GRID ================= */
+        .fact-grid { display:flex; justify-content:space-between; gap:20px; margin:30px 0 40px; }
+        .fact-box { flex:1; padding:20px; border-radius:10px; text-align:left; box-shadow:0 4px 15px rgba(0,0,0,0.08); min-width:250px; transition: transform 0.3s, box-shadow 0.3s;}
+        .fact-box:hover { transform: translateY(-10px) scale(1.03); box-shadow:0 12px 30px rgba(0,0,0,0.2); }
+        .fact-box h4 { font-family:'Poppins', sans-serif; color: var(--sdg-red); font-size:1.5em; margin-top:0; }
+        .fact-box p { font-size:0.95em; color: var(--dark-blue); }
+        .fact-1 { border-top:4px solid var(--sdg-green); background:#e0f2f1; }
+        .fact-2 { border-top:4px solid var(--sdg-red); background:#fbecec; }
+
+        /* ================= CARBON CALCULATOR ================= */
+        #carbon-input-widget {
+            margin: 30px auto 0;
+            max-width: 400px;
+            padding: 20px;
+            border: 2px dashed #457b9d;
+            border-radius: 50px;
+            text-align: center;
+            background: #f1f9f8;
+        }
+        #carbon-input-widget input[type="number"] {
+            padding: 12px;
+            border: 2px solid var(--sdg-green);
+            border-radius: 50px 0 0 50px;
+            width: 60%;
+            font-size: 1em;
+            outline:none;
+        }
+        #carbon-input-widget button {
+            border-radius: 0 50px 50px 0;
+            font-size: 1em;
+            padding: 12px 20px;
+            border:none;
+            background: var(--sdg-green);
+            color:white;
+            font-weight:600;
+            cursor:pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        #carbon-input-widget button:hover {
+            background:#264653;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow:0 10px 25px rgba(42,157,143,0.6);
+        }
+        #result {
+            margin-top:15px;
+            font-weight:700;
+            color: var(--sdg-green);
+            min-height: 25px;
+        }
+
+        /* ================= POPUP FORM ================= */
+        .popup-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            text-align: center;
+            position: relative;
+            animation: popupScale 0.3s ease-out;
+        }
+
+        @keyframes popupScale {
+            from { transform: scale(0.7); opacity:0; }
+            to { transform: scale(1); opacity:1; }
+        }
+
+        .popup-content h2 {
+            margin-top: 0;
+            color: var(--sdg-red);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .popup-content input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid var(--sdg-green);
+            font-size: 1em;
+        }
+
+        .reg-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--sdg-green);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .reg-btn:hover {
+            background: #264653;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* ================= FOOTER ================= */
+        footer { background: var(--dark-blue); color:white; text-align:center; padding:30px; margin-top:50px; font-size:14px; }
+
+        /* ================= RESPONSIVENESS ================= */
+        @media(max-width:900px){ .fact-grid{flex-direction:column;} }
+        @media(max-width:600px){
+            header h1{ font-size:40px; }
+            header h2{ font-size:20px; }
+            nav a{ margin:0 5px; font-size:12px; }
+            #carbon-input-widget input[type="number"]{ width:55%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>SDG 13: Climate Action Now!</h1>
+    <h2>It's not just a goal. It's our <strong>Emergency Plan</strong> 🚨</h2>
+</header>
+
+<nav role="navigation" aria-label="Main Navigation">
+    <a href="index.html">Home</a>
+    <a href="sdg13.html">SDG 13 Targets</a>
+    <a href="imple2.html">Implementation</a>
+    <!-- <a href="#carbon-section">Calculate</a> -->
+    <a href="feedback.html">Feedback</a>
+
+    <button id="openPopupBtn">Register</button>
+</nav>
+
+<main>
+    <section>
+        <h2>The Race Against the Clock ⏳</h2>
+        <p class="intro-text">
+            The <strong>Sustainable Development Goal 13</strong> urges the world to take immediate action to combat climate change. Transitioning to a <strong>Low Carbon Life</strong> secures a sustainable future for everyone.
+        </p>
+
+        <div class="fact-grid">
+            <div class="fact-box fact-1">
+                <h4>🔥 Global Temperature Rise</h4>
+                <p>We are already near a <strong>1.1°C</strong> global temperature increase above pre-industrial levels. Staying below 1.5°C is critical to avoiding catastrophic change. Every fraction matters!</p>
+            </div>
+            <div class="fact-box fact-2">
+                <h4>💨 Your Carbon Footprint</h4>
+                <p>The average human's carbon footprint is <strong>4 metric tonnes</strong> of CO₂ per year. Reducing consumption, choosing green energy, and smart travel can halve this figure.</p>
+            </div>
+        </div>
+
+    
+
+        <h3 id="carbon-section" style="color: var(--sdg-red); font-family:'Poppins', sans-serif;">What's Your Carbon Contribution?</h3>
+        <div id="carbon-input-widget">
+            <input type="number" id="distanceInput" placeholder="Enter km" value="100">
+            <button>Calculate</button>
+            <p id="result">Result will show here.</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2025 SDG 13 – Low Carbon Life | The Planet Needs You.
+</footer>
+
+<!-- ================= POPUP REGISTRATION FORM ================= -->
+<div id="popupForm" class="popup-overlay">
+    <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <h2>Register Now</h2>
+
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Create Password" required>
+            <button type="submit" class="reg-btn">Register</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // ================= CARBON CALCULATOR =================
+    const distanceInput = document.getElementById('distanceInput');
+    const resultElement = document.getElementById('result');
+    const button = document.querySelector('#carbon-input-widget button');
+
+    function animateNumber(start, end, duration) {
+        let startTime = null;
+        function step(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const progress = Math.min((currentTime - startTime)/duration, 1);
+            const value = (start + (end - start)*progress).toFixed(2);
+            resultElement.innerHTML = `Your estimated travel CO₂: <strong style="color:${'var(--sdg-red)'};">${value} kg CO₂</strong><br>That's like running a microwave for ${Math.round(value*10)} hours!`;
+            if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+    }
+
+    function calculateFootprint() {
+        const distance = parseFloat(distanceInput.value);
+        if (isNaN(distance) || distance < 0) {
+            resultElement.innerHTML = `<span style="color: var(--sdg-red);">Please enter a valid distance.</span>`;
+            return;
+        }
+        const kgCO2 = distance * 0.2;
+        animateNumber(0, kgCO2, 1000);
+    }
+
+    distanceInput.addEventListener('input', calculateFootprint);
+    button.addEventListener('click', calculateFootprint);
+
+    // ================= POPUP FORM JS =================
+    const openPopupBtn = document.getElementById("openPopupBtn");
+    const popupForm = document.getElementById("popupForm");
+    const closeBtn = document.querySelector(".close-btn");
+
+    openPopupBtn.addEventListener("click", () => {
+        popupForm.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        popupForm.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+        if (e.target === popupForm) {
+            popupForm.style.display = "none";
+        }
+    });
+
+    document.getElementById("registerForm").addEventListener("submit", function(e){
+        e.preventDefault();
+        alert("Registration successful!");
+        popupForm.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
